@@ -1,11 +1,9 @@
 package com.example.musiccatalog.plain.dao.pojos;
 
-import com.example.musiccatalog.plain.PlainJdbcDemo;
 import com.example.musiccatalog.plain.pojos.Singer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
