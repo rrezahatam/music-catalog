@@ -16,7 +16,6 @@ public interface CoreDao {
 
     default void closeConnection(Connection connection) throws SQLException{
         if(connection == null) return;
-
         connection.close();
     }
 }

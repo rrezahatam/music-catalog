@@ -1,6 +1,8 @@
 package com.example.musiccatalog.plain;
 
+import com.example.musiccatalog.config.BasicDataSourceCfg;
 import com.example.musiccatalog.config.SimpleDataSourceCfg;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -24,6 +26,16 @@ public class DataSourceConfigTest {
         ctx.close();
     }
 
+    @Test
+    public void testSpringJdbc(){
+        var ctx = new AnnotationConfigApplicationContext(SpringDatasourceCfg.class);
+        var dataSource = ctx.getBean(BasicDataSource.class);
+        assertNotNull(dataSource);
+        testDataSource(dataSource);
+        SingerDao dao = ctx.getBean(SingerDao.class);
+        assertEquals("John Mayer", dao.findNameById(1L));
+        ctx.close();
+    }
     public void testDataSource(DataSource dataSource){
         try(var connection = dataSource.getConnection()){
             var statement = connection.prepareStatement("SELECT 1 AS mockValue");
