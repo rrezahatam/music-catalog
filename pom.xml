@@ -24,6 +24,7 @@
         <logback.version>1.4.8</logback.version>
         <spring.version>7.0.9</spring.version>
         <commons.dbcp2.version>2.14.0</commons.dbcp2.version>
+        <h2.version>2.5.252</h2.version>
     </properties>
 
 
@@ -71,6 +72,13 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-dbcp2</artifactId>
             <version>${commons.dbcp2.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
